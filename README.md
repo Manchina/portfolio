@@ -1,6 +1,6 @@
 # Prem Manchina &middot; 3D Interactive Portfolio
 
-> **High-Performance 3D Developer Portfolio & System Architecture Showcase**  
+> **High-Performance 3D Product Engineer Portfolio & Systems Showcase**  
 > Built with React 19, TypeScript, Three.js WebGL, Tailwind CSS, and Web Audio API.
 
 ---
@@ -8,7 +8,7 @@
 ## ⚡ Live Features
 
 - **⚛️ 3D Quantum Reactor Hero (WebGL)**: Interactive Three.js particle vortex with multi-layered glowing core, 3 orbital rings, mouse parallax, and click shockwave pulses.
-- **⚡ AWS Event Architecture Visualizer**: Interactive blueprint of the Wysbryx Technologies Enterprise Notification Engine (`Fastify v5 → SNS → SQS/DLQ → Lambda → SES + Aurora PostgreSQL`).
+- **⚡ AWS Event Architecture Visualizer**: Interactive blueprint of the Wysbryx Technologies Enterprise Event-Driven Microservice (`Fastify v5 → SNS → SQS/DLQ → Lambda → SES + Aurora PostgreSQL`).
 - **💻 Cyber Terminal (HUD Mode)**: Interactive Unix-style terminal CLI with custom commands (`help`, `about`, `projects`, `skills`, `experience`, `certifications`, `metrics`, `contact`, `matrix`, `sudo hire prem`).
 - **🎴 3D Perspective Tilt Project Cards**: Curated flagship repositories with mouse glare reflection, technical metrics, and architectural deep-dive modals.
 - **🎯 Technical Radar & Skills Matrix**: Filterable skill clouds across Backend & Distributed Systems, Cloud & DevOps, Databases & AI, and Frontend Engineering.

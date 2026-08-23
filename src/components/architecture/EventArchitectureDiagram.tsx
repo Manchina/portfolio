@@ -49,7 +49,7 @@ const ARCHITECTURE_NODES: Record<string, NodeInfo> = {
     category: 'Message Fan-out',
     icon: Zap,
     color: 'purple',
-    description: 'Central event distributor broadcasting notification triggers to regional decoupled worker queues.',
+    description: 'Central event distributor broadcasting triggers to regional decoupled worker queues.',
     metrics: [
       { label: 'Latency Drop', value: '~80%' },
       { label: 'Isolation', value: '100% Fail-Safe' },
@@ -165,10 +165,10 @@ export const EventArchitectureDiagram: React.FC = () => {
             Live System Blueprint &middot; Production Case Study
           </div>
           <h3 className="text-xl sm:text-2xl font-bold font-display text-white tracking-tight">
-            AWS Event-Driven Notification Engine Architecture
+            AWS Event-Driven Microservice Architecture
           </h3>
           <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-            Re-architected at Wysbryx Technologies: transitioned synchronous bottleneck to SNS &rarr; Lambda &rarr; SQS/SES, slashing latency by ~80%.
+            Re-architected at Wysbryx Technologies: transitioned synchronous bottleneck to an asynchronous AWS event bus (SNS &rarr; Lambda &rarr; SQS/SES), slashing API latency by ~80%.
           </p>
         </div>
 

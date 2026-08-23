@@ -25,7 +25,7 @@ export const CyberTerminal: React.FC<CyberTerminalProps> = ({ isOpen, onClose })
       output: (
         <div className="space-y-1.5 text-xs text-slate-300">
           <p className="text-cyan-400 font-bold">
-            ⚡ QUANTUM TERMINAL v3.8.2 [Online] &middot; Prem Manchina Architecture
+            ⚡ QUANTUM TERMINAL v3.8.2 [Online] &middot; Prem Manchina
           </p>
           <p className="text-slate-400">
             Type <span className="text-emerald-400 font-mono font-bold">help</span> to view available system commands or click the quick pills below.

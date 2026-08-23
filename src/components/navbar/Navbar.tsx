@@ -89,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTerminal, onOpenResume }) 
             </div>
             <div className="text-[10px] font-mono text-cyan-400 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Product Engineer &middot; Cloud Architect
+              Product Engineer &middot; Full Stack Systems
             </div>
           </div>
         </a>

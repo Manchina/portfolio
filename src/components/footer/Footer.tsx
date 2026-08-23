@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
           <div>
             <div className="text-xs font-bold text-white font-display">Prem Manchina</div>
             <div className="text-[11px] font-mono text-slate-500">
-              Product Engineer &middot; Distributed Systems Architect
+              Product Engineer &middot; Full Stack Developer
             </div>
           </div>
         </div>

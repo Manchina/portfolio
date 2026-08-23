@@ -33,7 +33,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
     sound.playSuccess();
     const text = `
 Prem Manchina
-Product Engineer & Systems Architect
+Product Engineer
 Location: ${PORTFOLIO_DATA.personal.location}
 Email: ${PORTFOLIO_DATA.personal.email} | Phone: ${PORTFOLIO_DATA.personal.phone}
 GitHub: ${PORTFOLIO_DATA.personal.github} | LinkedIn: ${PORTFOLIO_DATA.personal.linkedin}

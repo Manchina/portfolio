@@ -34,7 +34,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onInspectProje
             Flagship Engineering Projects
           </h2>
           <p className="text-sm sm:text-base text-slate-400 mt-2 max-w-2xl">
-            Autonomous AI agent swarms, vector RAG crawlers with MCP, enterprise notification pipelines, and distributed event-driven systems.
+            Autonomous AI agent swarms, vector RAG crawlers with MCP, enterprise event-driven pipelines, and high-performance full-stack platforms.
           </p>
         </div>
 

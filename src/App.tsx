@@ -62,13 +62,13 @@ export function App() {
                   Prem <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">Manchina</span>
                 </h1>
                 <div className="text-xl sm:text-2xl font-bold font-display text-slate-300">
-                  Product Engineer &amp; Distributed Cloud Architect
+                  Product Engineer
                 </div>
               </div>
 
               {/* Lead Bio Description */}
               <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
-                Specializing in high-throughput enterprise notification microservices, event-driven AWS cloud pipelines (<code className="text-cyan-300">SNS → Lambda → SQS/SES</code>), Fastify v5 REST APIs, type-safe database architectures with Drizzle ORM + Aurora PostgreSQL, and self-healing autonomous AI agents.
+                Specializing in high-throughput event-driven microservices (<code className="text-cyan-300">AWS SNS → Lambda → SQS/SES</code>), ultra-fast Fastify &amp; Node.js REST APIs, type-safe database architectures with Drizzle ORM + Aurora PostgreSQL, and self-healing autonomous AI agents.
               </p>
 
               {/* CTA Action Buttons */}
