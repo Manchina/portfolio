@@ -3,14 +3,16 @@ import { Code2 } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../../data/portfolioData';
 import type { ProjectItem } from '../../data/portfolioData';
 import { ProjectCard3D } from './ProjectCard3D';
-import { ProjectModal } from './ProjectModal';
 import { sound } from '../../utils/SoundEffects';
 
 type FilterCategory = 'All' | 'AI & Systems' | 'Cloud & Backend' | 'Full Stack';
 
-export const ProjectsSection: React.FC = () => {
+interface ProjectsSectionProps {
+  onInspectProject: (project: ProjectItem) => void;
+}
+
+export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onInspectProject }) => {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('All');
-  const [inspectedProject, setInspectedProject] = useState<ProjectItem | null>(null);
 
   const categories: FilterCategory[] = ['All', 'AI & Systems', 'Cloud & Backend', 'Full Stack'];
 
@@ -63,16 +65,10 @@ export const ProjectsSection: React.FC = () => {
           <ProjectCard3D
             key={project.id}
             project={project}
-            onInspect={(proj) => setInspectedProject(proj)}
+            onInspect={onInspectProject}
           />
         ))}
       </div>
-
-      {/* Deep-Dive Project Modal */}
-      <ProjectModal
-        project={inspectedProject}
-        onClose={() => setInspectedProject(null)}
-      />
     </section>
   );
 };

@@ -13,7 +13,10 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) onClose();
+      if (e.key === 'Escape' && isOpen) {
+        sound.playClick();
+        onClose();
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
@@ -55,10 +58,18 @@ ${PORTFOLIO_DATA.education.institution} (${PORTFOLIO_DATA.education.period})
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="w-full max-w-4xl max-h-[92vh] bg-[#0c101b] border border-cyan-500/30 rounded-2xl shadow-[0_0_50px_rgba(0,240,255,0.2)] flex flex-col overflow-hidden">
+    <div 
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 pt-20 sm:pt-6 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          sound.playClick();
+          onClose();
+        }
+      }}
+    >
+      <div className="w-full max-w-4xl max-h-[85vh] bg-[#0c101b] border border-cyan-500/40 rounded-2xl shadow-[0_0_60px_rgba(0,240,255,0.25)] flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
         {/* Header Bar */}
-        <div className="p-4 bg-[#0f1422] border-b border-slate-800 flex items-center justify-between">
+        <div className="p-4 sm:p-5 bg-[#0f1422] border-b border-slate-800 flex items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-cyan-400" />
             <span className="font-bold text-sm text-white font-display">Executive Resume &middot; Prem Manchina</span>
@@ -70,20 +81,21 @@ ${PORTFOLIO_DATA.education.institution} (${PORTFOLIO_DATA.education.period})
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono transition-all border border-slate-700"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-              {copied ? 'Copied!' : 'Copy Text'}
+              <span className="hidden sm:inline">{copied ? 'Copied!' : 'Copy Text'}</span>
             </button>
             <button
               onClick={handlePrint}
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs font-mono transition-all shadow-md hover:shadow-cyan-500/25"
             >
-              <Printer className="w-3.5 h-3.5" /> Print / Save PDF
+              <Printer className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Print / Save PDF</span>
             </button>
             <button
               onClick={() => {
                 sound.playClick();
                 onClose();
               }}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              className="p-1.5 rounded-lg text-slate-400 hover:text-red-400 hover:bg-slate-800 transition-colors"
+              title="Close (Esc)"
             >
               <X className="w-5 h-5" />
             </button>

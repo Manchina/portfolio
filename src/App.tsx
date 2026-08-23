@@ -8,10 +8,12 @@ import {
   Award 
 } from 'lucide-react';
 import { PORTFOLIO_DATA } from './data/portfolioData';
+import type { ProjectItem } from './data/portfolioData';
 import { sound } from './utils/SoundEffects';
 import { QuantumReactor3D } from './components/canvas/QuantumReactor3D';
 import { EventArchitectureDiagram } from './components/architecture/EventArchitectureDiagram';
 import { ProjectsSection } from './components/projects/ProjectsSection';
+import { ProjectModal } from './components/projects/ProjectModal';
 import { SkillsSection } from './components/skills/SkillsSection';
 import { ExperienceSection } from './components/experience/ExperienceSection';
 import { CertificationsAndEducation } from './components/education/CertificationsAndEducation';
@@ -24,6 +26,7 @@ import { Footer } from './components/footer/Footer';
 export function App() {
   const [terminalOpen, setTerminalOpen] = useState(false);
   const [resumeOpen, setResumeOpen] = useState(false);
+  const [inspectedProject, setInspectedProject] = useState<ProjectItem | null>(null);
 
   return (
     <div className="min-h-screen bg-[#07090e] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 relative overflow-x-hidden">
@@ -41,7 +44,7 @@ export function App() {
         onOpenResume={() => setResumeOpen(true)}
       />
 
-      <main className="relative z-10 pt-24 sm:pt-28">
+      <main className="relative pt-24 sm:pt-28">
         {/* ===================== HERO SECTION ===================== */}
         <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-6 pb-20 sm:pb-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -160,7 +163,7 @@ export function App() {
         </section>
 
         {/* ===================== FLAGSHIP PROJECTS ===================== */}
-        <ProjectsSection />
+        <ProjectsSection onInspectProject={(proj) => setInspectedProject(proj)} />
 
         {/* ===================== TECHNICAL RADAR / SKILLS ===================== */}
         <SkillsSection />
@@ -177,6 +180,12 @@ export function App() {
 
       {/* Floating Footer */}
       <Footer />
+
+      {/* Deep-Dive Project Modal Overlay (Rendered at root with z-[100]) */}
+      <ProjectModal
+        project={inspectedProject}
+        onClose={() => setInspectedProject(null)}
+      />
 
       {/* Cyber Terminal Modal Overlay */}
       <CyberTerminal

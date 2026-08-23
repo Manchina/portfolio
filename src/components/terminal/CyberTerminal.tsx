@@ -48,6 +48,17 @@ export const CyberTerminal: React.FC<CyberTerminalProps> = ({ isOpen, onClose })
   }, [isOpen]);
 
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        sound.playClick();
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  useEffect(() => {
     terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history, isMatrixMode]);
 
@@ -303,18 +314,26 @@ export const CyberTerminal: React.FC<CyberTerminalProps> = ({ isOpen, onClose })
   const QUICK_COMMANDS = ['help', 'projects', 'skills', 'experience', 'metrics', 'sudo hire prem', 'clear'];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div 
+      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 pt-20 sm:pt-6 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          sound.playClick();
+          onClose();
+        }
+      }}
+    >
       <div
         className={`w-full ${
-          isMaximized ? 'h-[95vh] max-w-[96vw]' : 'h-[620px] max-w-3xl'
-        } bg-[#080b12] border border-cyan-500/30 rounded-2xl shadow-[0_0_50px_rgba(0,240,255,0.15)] flex flex-col overflow-hidden transition-all duration-300 relative`}
+          isMaximized ? 'h-[90vh] max-w-[96vw]' : 'h-[600px] max-w-3xl'
+        } bg-[#080b12] border border-cyan-500/40 rounded-2xl shadow-[0_0_60px_rgba(0,240,255,0.25)] flex flex-col overflow-hidden transition-all duration-300 relative animate-in zoom-in-95 duration-200`}
       >
         {/* Terminal Titlebar */}
         <div className="px-4 py-3 bg-[#0f1422] border-b border-slate-800 flex items-center justify-between select-none">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500/80 cursor-pointer" onClick={onClose} />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80 cursor-pointer" onClick={() => handleExecuteCommand('clear')} />
-            <div className="w-3 h-3 rounded-full bg-emerald-500/80 cursor-pointer" onClick={() => setIsMaximized(!isMaximized)} />
+            <div className="w-3 h-3 rounded-full bg-red-500/80 cursor-pointer" onClick={onClose} title="Close" />
+            <div className="w-3 h-3 rounded-full bg-yellow-500/80 cursor-pointer" onClick={() => handleExecuteCommand('clear')} title="Clear Screen" />
+            <div className="w-3 h-3 rounded-full bg-emerald-500/80 cursor-pointer" onClick={() => setIsMaximized(!isMaximized)} title="Maximize / Restore" />
             <span className="text-xs font-mono text-slate-400 ml-2 flex items-center gap-1.5">
               <Terminal className="w-3.5 h-3.5 text-cyan-400" />
               prem@quantum-engine:~ (bash)
@@ -329,10 +348,14 @@ export const CyberTerminal: React.FC<CyberTerminalProps> = ({ isOpen, onClose })
               {isMaximized ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
             </button>
             <button
-              onClick={onClose}
-              className="p-1 rounded text-slate-400 hover:text-red-400 hover:bg-slate-800"
+              onClick={() => {
+                sound.playClick();
+                onClose();
+              }}
+              className="p-1.5 rounded-lg text-slate-400 hover:text-red-400 hover:bg-slate-800 transition-colors"
+              title="Close (Esc)"
             >
-              <X className="w-3.5 h-3.5" />
+              <X className="w-4 h-4" />
             </button>
           </div>
         </div>
