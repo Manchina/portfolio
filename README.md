@@ -59,8 +59,8 @@ The optimized static build will be generated in `dist/`.
 **Prem Manchina**  
 - **Email**: [premmanchina33@gmail.com](mailto:premmanchina33@gmail.com)  
 - **GitHub**: [@Manchina](https://github.com/Manchina)  
-- **LinkedIn**: [prem-manchina](https://www.linkedin.com/in/prem-manchina/)  
-- **LeetCode**: [premmanchina33](https://leetcode.com/u/premmanchina33/)  
+- **LinkedIn**: [prem-manchina](https://www.linkedin.com/in/prem-manchina-a699b9242/)  
+- **LeetCode**: [Manchina](https://leetcode.com/u/Manchina/)  
 
 ---
 

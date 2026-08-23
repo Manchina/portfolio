@@ -50,8 +50,8 @@ export const PORTFOLIO_DATA = {
     email: 'premmanchina33@gmail.com',
     phone: '+91 9441513653',
     github: 'https://github.com/Manchina',
-    linkedin: 'https://www.linkedin.com/in/prem-manchina/',
-    leetcode: 'https://leetcode.com/u/premmanchina33/',
+    linkedin: 'https://www.linkedin.com/in/prem-manchina-a699b9242/',
+    leetcode: 'https://leetcode.com/u/Manchina/',
     availability: 'Open for high-impact Engineering & Architecture Roles',
     stats: [
       { label: 'Workflows Scaled', value: '150+', change: 'across 12 HR modules' },
